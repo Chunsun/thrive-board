@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/compass',
+      name: 'compass',
+      component: () => import('../views/LifeCompass.vue'),
+    },
+    {
       path: '/journal',
       name: 'journal',
       component: () => import('../views/JournalView.vue'),
