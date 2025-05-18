@@ -1,18 +1,16 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
+<!-- App.vue -->
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/journal">Journal</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <div class="min-h-screen flex flex-col">
+    <!-- Top Nav -->
+    <NavBar />
 
-  <RouterView />
+    <!-- Page Content -->
+    <main class="flex-1 p-4 bg-gray-50 dark:bg-gray-900">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<script setup>
+import NavBar from '@/components/NavBar.vue'
+</script>

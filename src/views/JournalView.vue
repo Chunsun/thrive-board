@@ -1,23 +1,14 @@
 <template>
-  <div ref="captureArea">
-    <LifeRadar />
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">Mini Journal</h2>
+    <Card>
+      <template #content>
+        <p>Journal writing UI will go here.</p>
+      </template>
+    </Card>
   </div>
-  <Button label="Capture & Share" @click="capture" />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import LifeRadar from '../components/LifeRadar.vue'
-import htmlToImage from 'vue-web-screen-shot'
-
-const captureArea = ref()
-
-const capture = async () => {
-  const img = await htmlToImage({
-    el: captureArea.value,
-    fileName: 'life-compass.png',
-    watermarkText: 'MyLife',
-  })
-  console.log('Captured Image:', img)
-}
+import Card from 'primevue/card'
 </script>
