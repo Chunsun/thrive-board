@@ -19,6 +19,16 @@ const router = createRouter({
       name: 'journal',
       component: () => import('../views/JournalView.vue'),
     },
+    // {
+    //   path: '/journal/history',
+    //   name: 'JournalHistory',
+    //   component: () => import('@/views/JournalHistory.vue'), // Optional for now
+    // },
+    {
+      path: '/challenge',
+      name: 'Challenge',
+      component: () => import('@/views/Challenge.vue'), // Next in flow
+    },
   ],
 })
 
