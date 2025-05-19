@@ -3,6 +3,7 @@
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { useMoodStore } from '@/stores/mood'
+import BottomTabBar from '@/components/BottomTabBar.vue'
 
 const router = useRouter()
 const store = useMoodStore()
@@ -25,7 +26,7 @@ const selectMood = (mood: string) => {
 </script>
 
 <template>
-  <div class="relative min-h-[80vh] flex flex-col items-center justify-center px-2 py-10">
+  <div class="relative min-h-[80vh] flex flex-col items-center justify-center px-2 pb-24 pt-10">
     <!-- Animated background accent -->
     <div
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[420px] md:h-[420px] bg-blue-100/40 rounded-full blur-2xl z-0 pointer-events-none"
@@ -61,6 +62,7 @@ const selectMood = (mood: string) => {
       </div>
     </div>
   </div>
+  <BottomTabBar />
 </template>
 
 <style scoped>
