@@ -3,29 +3,26 @@
     class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-blue-100 shadow-lg flex justify-around items-center py-1 px-2 md:px-8 backdrop-blur-xl"
     style="height: 64px"
   >
-    <div v-for="tab in tabs" :key="tab.to" class="flex flex-col items-center flex-1 group relative">
+    <div v-for="tab in tabs" :key="tab.to" class="flex-1 h-full">
       <button
         @click="go(tab.to)"
-        class="flex flex-col items-center w-full focus:outline-none transition-all duration-150 active:scale-95"
+        class="flex flex-col items-center justify-center w-full h-full focus:outline-none transition-all duration-150 active:scale-95 rounded-t-xl"
         :class="
           isActive(tab.to)
-            ? 'text-primary font-semibold'
+            ? 'text-primary font-semibold bg-gradient-to-t from-company-blue to-company-green scale-105 border-2 border-company-blue shadow-md'
             : 'text-gray-500 font-normal hover:text-primary'
         "
         style="background: none; border: none; padding: 0; margin: 0"
       >
-        <span
-          class="inline-flex items-center justify-center rounded-full mb-0.5 transition-all duration-150"
-          :class="[
-            isActive(tab.to)
-              ? 'text-primary bg-white border-t-2 border-primary shadow-sm scale-110'
-              : 'text-gray-500 bg-transparent',
-            isActive(tab.to) ? 'w-11 h-11 md:w-12 md:h-12' : 'w-9 h-9 md:w-10 md:h-10',
-          ]"
-        >
+        <!-- Icon with no circle, background, or shadow -->
+        <span class="mb-0.5 transition-all duration-150">
           <component
             :is="tab.iconComponent"
-            :class="isActive(tab.to) ? 'text-primary' : 'text-gray-500 group-hover:text-primary'"
+            :class="
+              isActive(tab.to)
+                ? 'text-primary drop-shadow'
+                : 'text-gray-500 group-hover:text-primary'
+            "
             class="transition-all duration-150"
             :style="isActive(tab.to) ? 'font-size: 26px;' : 'font-size: 22px;'"
           />
@@ -34,7 +31,7 @@
           class="block mt-0.5 transition-all duration-150"
           :class="[
             isActive(tab.to)
-              ? 'text-primary font-semibold text-xs md:text-sm'
+              ? 'text-primary font-semibold text-xs md:text-sm drop-shadow'
               : 'text-gray-500 font-normal text-xs md:text-sm group-hover:text-primary',
           ]"
         >
@@ -67,10 +64,17 @@ const tabs = [
 nav {
   min-height: 64px;
 }
-.border-primary {
-  border-color: #2563eb !important; /* Tailwind blue-600 */
+.border-company-blue {
+  border-color: #0089d1 !important;
+}
+.from-company-blue {
+  --tw-gradient-from: #0089d1;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 137, 209, 0));
+}
+.to-company-green {
+  --tw-gradient-to: #01b6ad;
 }
 .text-primary {
-  color: #2563eb !important;
+  color: #0089d1 !important;
 }
 </style>
