@@ -7,7 +7,7 @@ import { User, Pencil, Bell, Download, Info } from 'lucide-vue-next'
 const user = ref({
   username: 'Alex',
   avatar: '🧑‍🎨',
-  greeting: 'Keep growing, Alex!',
+  greeting: '持續成長，Alex！',
 })
 
 const metrics = [
@@ -19,16 +19,16 @@ const metrics = [
 ]
 
 const streaks = [
-  { icon: '🔥', label: 'Current Streak', value: '4 days' },
-  { icon: '🏆', label: 'Longest Streak', value: '9 days' },
-  { icon: '🕒', label: 'Active Days', value: '17' },
+  { icon: '🔥', label: '目前連續天數', value: '4 天' },
+  { icon: '🏆', label: '最長連續天數', value: '9 天' },
+  { icon: '🕒', label: '活躍天數', value: '17' },
 ]
 
 const badges = [
-  { icon: '🥇', label: 'First Challenge Complete' },
-  { icon: '✍️', label: '7-Day Journal Streak' },
-  { icon: '📊', label: 'All Metrics > 70%' },
-  { icon: '➕', label: 'More coming soon...' },
+  { icon: '🥇', label: '完成第一個挑戰' },
+  { icon: '✍️', label: '7 天日誌連續紀錄' },
+  { icon: '📊', label: '所有指標 > 70%' },
+  { icon: '➕', label: '更多徽章即將推出...' },
 ]
 </script>
 
@@ -37,7 +37,7 @@ const badges = [
     <!-- Profile Header -->
     <div class="flex items-center gap-2 text-2xl font-bold mb-2">
       <User class="w-7 h-7 text-blue-500" />
-      <span>Profile</span>
+      <span>個人檔案</span>
     </div>
 
     <!-- User Section -->
@@ -50,7 +50,7 @@ const badges = [
     <!-- Metric Overview -->
     <div class="bg-white rounded-2xl shadow p-4 mb-2">
       <div class="font-semibold mb-2 flex items-center gap-2">
-        <span class="text-lg">📈</span> Metric Overview
+        <span class="text-lg">📈</span> 指標總覽
       </div>
       <div class="space-y-2">
         <div v-for="m in metrics" :key="m.key" class="flex items-center gap-2">
@@ -70,7 +70,7 @@ const badges = [
     <!-- Streaks & Milestones -->
     <div class="bg-white rounded-2xl shadow p-4 mb-2">
       <div class="font-semibold mb-2 flex items-center gap-2">
-        <span class="text-lg">🔥</span> Streaks & Milestones
+        <span class="text-lg">🔥</span> 連續紀錄與里程碑
       </div>
       <div class="flex flex-col gap-1">
         <div v-for="s in streaks" :key="s.label" class="flex items-center gap-2">
@@ -84,7 +84,7 @@ const badges = [
     <!-- Badges -->
     <div class="bg-white rounded-2xl shadow p-4 mb-2">
       <div class="font-semibold mb-2 flex items-center gap-2">
-        <span class="text-lg">🎖️</span> Badges
+        <span class="text-lg">🎖️</span> 徽章
       </div>
       <div class="flex flex-wrap gap-3">
         <div
@@ -101,20 +101,20 @@ const badges = [
     <!-- Settings Section -->
     <div class="bg-white rounded-2xl shadow p-4 mb-2">
       <div class="font-semibold mb-2 flex items-center gap-2">
-        <span class="text-lg">⚙️</span> Settings
+        <span class="text-lg">⚙️</span> 設定
       </div>
       <div class="flex flex-col gap-2">
         <Button variant="ghost" class="justify-start gap-2 w-full"
-          ><Pencil class="w-4 h-4" /> Edit Profile</Button
+          ><Pencil class="w-4 h-4" /> 編輯個人檔案</Button
         >
         <Button variant="ghost" class="justify-start gap-2 w-full"
-          ><Bell class="w-4 h-4" /> Notification Settings</Button
+          ><Bell class="w-4 h-4" /> 通知設定</Button
         >
         <Button variant="ghost" class="justify-start gap-2 w-full"
-          ><Download class="w-4 h-4" /> Export Data</Button
+          ><Download class="w-4 h-4" /> 匯出資料</Button
         >
         <Button variant="ghost" class="justify-start gap-2 w-full"
-          ><Info class="w-4 h-4" /> About / Version Info</Button
+          ><Info class="w-4 h-4" /> 關於 / 版本資訊</Button
         >
       </div>
     </div>
