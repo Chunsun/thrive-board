@@ -21,29 +21,29 @@ interface DateRangeOption {
   value: number | string
 }
 const dateRanges: DateRangeOption[] = [
-  { label: '14 Days', value: 14 },
-  { label: '30 Days', value: 30 },
-  { label: 'Custom', value: 'custom' },
+  { label: '14 天', value: 14 },
+  { label: '30 天', value: 30 },
+  { label: '自訂', value: 'custom' },
 ]
 const selectedRange = ref<DateRangeOption>(dateRanges[0])
 const showRangeDropdown = ref(false)
 
 const chartData = ref({
   labels: [
-    'May 7',
-    'May 8',
-    'May 9',
-    'May 10',
-    'May 11',
-    'May 12',
-    'May 13',
-    'May 14',
-    'May 15',
-    'May 16',
-    'May 17',
-    'May 18',
-    'May 19',
-    'May 20',
+    '5月7日',
+    '5月8日',
+    '5月9日',
+    '5月10日',
+    '5月11日',
+    '5月12日',
+    '5月13日',
+    '5月14日',
+    '5月15日',
+    '5月16日',
+    '5月17日',
+    '5月18日',
+    '5月19日',
+    '5月20日',
   ],
   metrics: [
     {
@@ -113,10 +113,10 @@ function onRangeSelect(r: { label: string; value: number | string }) {
 }
 
 const insights = [
-  { text: 'Most improved: 🧠 成長 (+12%)' },
-  { text: 'Least active: 🎁 貢獻' },
-  { text: 'Challenge completions spiked on weekends' },
-  { text: 'Keep it up! Small actions = strong impact' },
+  { text: '最顯著進步：🧠 成長 (+12%)' },
+  { text: '最少活躍：🎁 貢獻' },
+  { text: '挑戰完成率在週末激增' },
+  { text: '繼續努力！小行動 = 強大影響' },
 ]
 
 // ECharts line chart option for metrics trends
@@ -174,13 +174,13 @@ function getColor(tw: string) {
 
 <template>
   <div class="max-w-2xl mx-auto p-4 space-y-8">
-    <!-- Trends Header -->
+    <!-- 趨勢標題 -->
     <div class="flex items-center gap-2 text-2xl font-bold mb-2">
       <TrendingUp class="w-7 h-7 text-blue-500" />
-      <span>Trends</span>
+      <span>趨勢</span>
     </div>
 
-    <!-- Date Range Selector -->
+    <!-- 日期範圍選擇器 -->
     <div class="flex items-center gap-2 mb-2">
       <CalendarDays class="w-5 h-5 text-gray-400" />
       <Button variant="ghost" size="sm" class="px-2 py-1" @click="selectDateRange(dateRanges[0])">
@@ -213,19 +213,19 @@ function getColor(tw: string) {
       <Button variant="ghost" size="sm" class="px-2 py-1" @click="selectDateRange(dateRanges[0])">
         <ChevronRight class="w-4 h-4" />
       </Button>
-      <span class="ml-2 text-gray-500 text-sm">[ Last {{ selectedRange.label }} ]</span>
+      <span class="ml-2 text-gray-500 text-sm">【最近 {{ selectedRange.label }}】</span>
     </div>
 
-    <!-- Line Chart -->
+    <!-- 折線圖 -->
     <div class="bg-white rounded-2xl shadow p-4 mb-2">
       <div class="flex items-center gap-2 mb-2">
         <TrendingUp class="w-5 h-5 text-blue-400" />
-        <span class="font-semibold">Progress Over Time</span>
+        <span class="font-semibold">指標變化趨勢</span>
       </div>
       <div class="text-xs text-gray-400 mb-2">
-        Y-axis: Metric % (0–100%) &nbsp;|&nbsp; X-axis: Date (Last 14 days)
+        Y 軸：指標百分比 (0–100%) &nbsp;|&nbsp; X 軸：日期（最近 14 天）
       </div>
-      <!-- Chart area (now using ECharts) -->
+      <!-- 圖表區域（ECharts） -->
       <div class="h-56 flex flex-col justify-center items-center relative">
         <VChart :option="lineChartOption" autoresize class="w-full h-full" />
         <div class="flex flex-wrap gap-4 mt-4">
@@ -239,10 +239,10 @@ function getColor(tw: string) {
           </span>
         </div>
       </div>
-      <div class="text-xs text-gray-400 mt-2">(Tap a dot to see % & reason)</div>
+      <div class="text-xs text-gray-400 mt-2">（點擊圓點可查看百分比與原因）</div>
     </div>
 
-    <!-- Entry Details Modal -->
+    <!-- 詳細資料彈窗 -->
     <div
       v-if="showEntryDetails && selectedPoint"
       class="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
@@ -259,20 +259,19 @@ function getColor(tw: string) {
             chartData.metrics.find((m) => m.label === selectedPoint?.metric)?.emoji
           }}</span>
           <span class="font-bold"
-            >{{ selectedPoint.metric }} on {{ selectedPoint.date }}:
-            {{ selectedPoint.value }}%</span
+            >{{ selectedPoint.metric }}，{{ selectedPoint.date }}： {{ selectedPoint.value }}%</span
           >
         </div>
-        <div class="text-sm text-gray-700 mb-1">• Source: ✅ Challenge: “Read 15 mins”</div>
-        <div class="text-sm text-gray-500 mb-2">• No journal on this day</div>
-        <Button @click="closeEntryDetails" variant="secondary" class="w-full mt-2">Close</Button>
+        <div class="text-sm text-gray-700 mb-1">• 來源：✅ 挑戰：「閱讀 15 分鐘」</div>
+        <div class="text-sm text-gray-500 mb-2">• 當天未填寫日誌</div>
+        <Button @click="closeEntryDetails" variant="secondary" class="w-full mt-2">關閉</Button>
       </div>
     </div>
 
-    <!-- Weekly Insights -->
+    <!-- 每週洞察 -->
     <div class="bg-white rounded-2xl shadow p-4 mt-4">
       <div class="font-semibold mb-2 flex items-center gap-2">
-        <span class="text-lg">📖</span> Weekly Insights
+        <span class="text-lg">📖</span> 每週洞察
       </div>
       <ul class="list-disc pl-6 text-gray-700 space-y-1">
         <li v-for="insight in insights" :key="insight.text">{{ insight.text }}</li>
