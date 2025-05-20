@@ -48,7 +48,7 @@ const activeChallenges = ref([
   {
     id: 1,
     icon: '📘',
-    title: 'Journal 3 Days Straight',
+    title: '連續寫日誌 3 天',
     days: 3,
     progress: 1,
     boosts: [
@@ -59,7 +59,7 @@ const activeChallenges = ref([
   {
     id: 2,
     icon: '🧠',
-    title: 'Learn One New Thing',
+    title: '學習一項新知',
     days: 3,
     progress: 0,
     boosts: [{ value: 2, icon: '🧠', label: '成長' }],
@@ -75,21 +75,21 @@ const browseChallenges = [
   {
     id: 3,
     icon: '💬',
-    title: 'Talk to a Friend',
+    title: '與朋友聊天',
     boosts: [{ value: 2, icon: '🤝', label: '連結' }],
     days: 2,
   },
   {
     id: 4,
     icon: '🧘',
-    title: '5-Min Meditation',
+    title: '5 分鐘冥想',
     boosts: [{ value: 2, icon: '🧘', label: '正念' }],
     days: 3,
   },
   {
     id: 5,
     icon: '🙏',
-    title: 'Gratitude Practice',
+    title: '感恩練習',
     boosts: [
       { value: 1, icon: '🧘', label: '正念' },
       { value: 1, icon: '🧠', label: '成長' },
@@ -121,18 +121,16 @@ const toggleDay = (challenge: any, day: number) => {
       class="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-100 rounded-xl p-4 flex items-center gap-4 shadow mb-4"
     >
       <span class="text-2xl">💡</span>
-      <span class="text-sm text-gray-700"
-        >Tip: Join a challenge to build healthy habits and earn metric boosts!</span
-      >
+      <span class="text-sm text-gray-700">小提示：參加挑戰，養成健康習慣並獲得幸福！</span>
     </div>
 
     <!-- Section: Active Challenges -->
     <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-gray-100">
       <div class="flex items-center gap-2 text-lg font-bold mb-4">
-        🔔 Active Challenges <span class="text-xs text-gray-400">(Max 3)</span>
+        🔔 進行中挑戰 <span class="text-xs text-gray-400">（最多 3 項）</span>
       </div>
       <div v-if="activeChallenges.length === 0" class="text-gray-400 text-sm py-6 text-center">
-        No active challenges.
+        尚無進行中的挑戰。
       </div>
       <div
         v-for="c in activeChallenges"
@@ -158,7 +156,7 @@ const toggleDay = (challenge: any, day: number) => {
               class="shadcn-checkbox-sm"
             />
             <span :class="c.progress >= d ? 'text-green-600 font-bold' : 'text-gray-400 font-bold'"
-              >Day {{ d }}</span
+              >第 {{ d }} 天</span
             >
           </span>
         </div>
@@ -183,14 +181,14 @@ const toggleDay = (challenge: any, day: number) => {
             variant="secondary"
             class="flex items-center gap-1 px-4 py-2 rounded-lg shadow text-gray-700 hover:bg-gray-100"
           >
-            <MessageCircle class="w-4 h-4" /> More Info
+            <MessageCircle class="w-4 h-4" /> 更多資訊
           </Button>
           <Button
             variant="destructive"
             class="flex items-center gap-1 px-4 py-2 rounded-lg shadow text-destructive border border-destructive bg-destructive/10 hover:bg-destructive/20"
             @click="cancelChallenge(c.id)"
           >
-            <XCircle class="w-4 h-4" /> Cancel
+            <XCircle class="w-4 h-4" /> 取消
           </Button>
         </div>
       </div>
@@ -201,9 +199,7 @@ const toggleDay = (challenge: any, day: number) => {
 
     <!-- Section: Browse New Challenges -->
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-      <div class="flex items-center gap-2 font-semibold mb-4 text-base">
-        ➕ Browse New Challenges
-      </div>
+      <div class="flex items-center gap-2 font-semibold mb-4 text-base">➕ 瀏覽新挑戰</div>
       <div
         v-for="c in browseChallenges"
         :key="c.id"
@@ -225,7 +221,7 @@ const toggleDay = (challenge: any, day: number) => {
             :key="b.label"
             class="text-sm flex items-center gap-1 bg-green-50 rounded px-2 py-1 shadow-sm"
           >
-            Boosts: +{{ b.value }}
+            指標加成：+{{ b.value }}
             <component
               :is="lucideIconMap[b.icon] || b.icon"
               class="w-4 h-4 drop-shadow-sm"
@@ -234,14 +230,14 @@ const toggleDay = (challenge: any, day: number) => {
             <span class="text-gray-500">{{ b.label }}</span>
           </span>
         </div>
-        <div class="text-xs text-gray-500 mb-2">📅 Duration: {{ c.days }} Days</div>
+        <div class="text-xs text-gray-500 mb-2">📅 持續天數：{{ c.days }} 天</div>
         <Button
           @click="joinChallenge(c.id)"
           :disabled="activeChallenges.length >= 3"
           variant="default"
           class="w-full max-w-xs mx-auto mt-1 px-4 py-2 rounded-lg font-semibold flex items-center justify-center gap-2 shadow text-white border-0 company-gradient"
         >
-          <Handshake class="w-4 h-4" /> Join Challenge
+          <Handshake class="w-4 h-4" /> 參加挑戰
         </Button>
       </div>
     </div>
