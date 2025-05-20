@@ -43,11 +43,11 @@ const radarOption = {
   tooltip: {},
   radar: {
     indicator: [
-      { name: '健康', max: 100 },
-      { name: '成長', max: 100 },
-      { name: '連結', max: 100 },
-      { name: '正念', max: 100 },
-      { name: '貢獻', max: 100 },
+      { name: 'Health', max: 100 },
+      { name: 'Growth', max: 100 },
+      { name: 'Connection', max: 100 },
+      { name: 'Mindfulness', max: 100 },
+      { name: 'Contribution', max: 100 },
     ],
     center: ['50%', '50%'],
     radius: '85%',
