@@ -45,6 +45,15 @@ const metrics = [
 const showModal = ref(false)
 const openModal = () => (showModal.value = true)
 const closeModal = () => (showModal.value = false)
+
+const insuranceTips = [
+  '每天 30 分鐘運動，也是在為未來減少醫療風險 — 富邦醫療險守護你的健康。',
+  '人生每個階段都能有保障。學習與規劃，是為未來鋪路。',
+  '今天的平靜，是未來安心的開始。富邦年金險給你穩定生活的後盾。',
+  '為家人努力的你，也值得一份保障。富邦壽險讓愛延續。',
+  '重要的連結，需要時間與保障共同維繫。',
+]
+const insuranceTip = ref(insuranceTips[Math.floor(Math.random() * insuranceTips.length)])
 </script>
 
 <template>
@@ -100,7 +109,7 @@ const closeModal = () => (showModal.value = false)
     <!-- INSURANCE TIP CARD -->
     <div class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2">
       <div class="text-lg font-semibold flex items-center gap-2">💡 今日保險小知識</div>
-      <div class="text-gray-700">「減壓有助於降低長期風險。」</div>
+      <div class="text-gray-700">{{ insuranceTip }}</div>
       <button class="text-company-blue underline text-sm w-fit hover:text-company-green">
         了解更多保險知識 ↓
       </button>
