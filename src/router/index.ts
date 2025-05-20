@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'trends',
       component: () => import('@/views/TrendsView.vue'), // Next in flow
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/views/ProfileView.vue'), // Next in flow
+    },
   ],
 })
 
