@@ -48,7 +48,7 @@ const chartData = ref({
   metrics: [
     {
       key: 'growth',
-      label: 'Growth',
+      label: '成長',
       icon: Brain,
       color: 'text-green-600',
       points: [55, 57, 60, 62, 63, 65, 66, 67, 68, 70, 72, 67, 69, 67],
@@ -56,7 +56,7 @@ const chartData = ref({
     },
     {
       key: 'health',
-      label: 'Health',
+      label: '健康',
       icon: HeartPulse,
       color: 'text-red-500',
       points: [60, 61, 62, 63, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74],
@@ -64,7 +64,7 @@ const chartData = ref({
     },
     {
       key: 'mindfulness',
-      label: 'Mindfulness',
+      label: '正念',
       icon: Smile,
       color: 'text-purple-500',
       points: [50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76],
@@ -72,7 +72,7 @@ const chartData = ref({
     },
     {
       key: 'connection',
-      label: 'Connection',
+      label: '連結',
       icon: Handshake,
       color: 'text-yellow-600',
       points: [40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66],
@@ -80,7 +80,7 @@ const chartData = ref({
     },
     {
       key: 'contribution',
-      label: 'Contribution',
+      label: '貢獻',
       icon: Gift,
       color: 'text-pink-500',
       points: [30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56],
@@ -113,8 +113,8 @@ function onRangeSelect(r: { label: string; value: number | string }) {
 }
 
 const insights = [
-  { text: 'Most improved: 🧠 Growth (+12%)' },
-  { text: 'Least active: 🎁 Contribution' },
+  { text: 'Most improved: 🧠 成長 (+12%)' },
+  { text: 'Least active: 🎁 貢獻' },
   { text: 'Challenge completions spiked on weekends' },
   { text: 'Keep it up! Small actions = strong impact' },
 ]

@@ -20,10 +20,10 @@ const option = ref({
   tooltip: {},
   radar: {
     indicator: [
-      { name: 'Health', max: 100 },
+      { name: '健康', max: 100 },
       { name: 'Relationships', max: 100 },
       { name: 'Money', max: 100 },
-      { name: 'Growth', max: 100 },
+      { name: '成長', max: 100 },
       { name: 'Security', max: 100 },
     ],
     radius: '65%',

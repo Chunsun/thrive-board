@@ -42,8 +42,8 @@ function shufflePrompt() {
 
 const entry = ref('')
 const tags = [
-  { icon: '🧠', label: 'Growth' },
-  { icon: '🏋', label: 'Health' },
+  { icon: '🧠', label: '成長' },
+  { icon: '🏋', label: '健康' },
   { icon: '❤️', label: 'Love' },
   { icon: '💼', label: 'Work' },
   { icon: '💰', label: 'Finance' },

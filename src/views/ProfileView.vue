@@ -11,11 +11,11 @@ const user = ref({
 })
 
 const metrics = [
-  { key: 'growth', label: 'Growth', emoji: '🧠', value: 72, color: 'bg-green-500' },
-  { key: 'health', label: 'Health', emoji: '💪', value: 60, color: 'bg-red-400' },
-  { key: 'mindfulness', label: 'Mindfulness', emoji: '🧘', value: 68, color: 'bg-purple-500' },
-  { key: 'connection', label: 'Connection', emoji: '🤝', value: 52, color: 'bg-yellow-500' },
-  { key: 'contribution', label: 'Contribution', emoji: '🎁', value: 75, color: 'bg-pink-500' },
+  { key: 'growth', label: '成長', emoji: '🧠', value: 72, color: 'bg-green-500' },
+  { key: 'health', label: '健康', emoji: '💪', value: 60, color: 'bg-red-400' },
+  { key: 'mindfulness', label: '正念', emoji: '🧘', value: 68, color: 'bg-purple-500' },
+  { key: 'connection', label: '連結', emoji: '🤝', value: 52, color: 'bg-yellow-500' },
+  { key: 'contribution', label: '貢獻', emoji: '🎁', value: 75, color: 'bg-pink-500' },
 ]
 
 const streaks = [

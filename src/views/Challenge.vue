@@ -52,8 +52,8 @@ const activeChallenges = ref([
     days: 3,
     progress: 1,
     boosts: [
-      { value: 2, icon: '🧠', label: 'Growth' },
-      { value: 1, icon: '🧘', label: 'Mindfulness' },
+      { value: 2, icon: '🧠', label: '成長' },
+      { value: 1, icon: '🧘', label: '正念' },
     ],
   },
   {
@@ -62,7 +62,7 @@ const activeChallenges = ref([
     title: 'Learn One New Thing',
     days: 3,
     progress: 0,
-    boosts: [{ value: 2, icon: '🧠', label: 'Growth' }],
+    boosts: [{ value: 2, icon: '🧠', label: '成長' }],
   },
 ])
 
@@ -76,14 +76,14 @@ const browseChallenges = [
     id: 3,
     icon: '💬',
     title: 'Talk to a Friend',
-    boosts: [{ value: 2, icon: '🤝', label: 'Connection' }],
+    boosts: [{ value: 2, icon: '🤝', label: '連結' }],
     days: 2,
   },
   {
     id: 4,
     icon: '🧘',
     title: '5-Min Meditation',
-    boosts: [{ value: 2, icon: '🧘', label: 'Mindfulness' }],
+    boosts: [{ value: 2, icon: '🧘', label: '正念' }],
     days: 3,
   },
   {
@@ -91,8 +91,8 @@ const browseChallenges = [
     icon: '🙏',
     title: 'Gratitude Practice',
     boosts: [
-      { value: 1, icon: '🧘', label: 'Mindfulness' },
-      { value: 1, icon: '🧠', label: 'Growth' },
+      { value: 1, icon: '🧘', label: '正念' },
+      { value: 1, icon: '🧠', label: '成長' },
     ],
     days: 3,
   },

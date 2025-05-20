@@ -1,42 +1,41 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import LifeRadar from '@/components/LifeRadar.vue'
-import FadeInCard from '@/components/FadeInCard.vue'
 import BottomTabBar from '@/components/BottomTabBar.vue'
 import { HeartPulse, TrendingUp, Users, Brain, HandCoins } from 'lucide-vue-next'
 
 const metrics = [
   {
     icon: HeartPulse,
-    label: 'Health',
+    label: '健康',
     value: 72,
     change: 2,
     color: 'text-pink-500 bg-pink-100 from-pink-400 to-pink-300',
   },
   {
     icon: TrendingUp,
-    label: 'Growth',
+    label: '成長',
     value: 65,
     change: -1,
     color: 'text-green-600 bg-green-100 from-green-400 to-green-300',
   },
   {
     icon: Users,
-    label: 'Connection',
+    label: '連結',
     value: 70,
     change: 0,
     color: 'text-blue-500 bg-blue-100 from-blue-400 to-blue-300',
   },
   {
     icon: Brain,
-    label: 'Mindfulness',
+    label: '正念',
     value: 68,
     change: 1,
     color: 'text-purple-500 bg-purple-100 from-purple-400 to-purple-300',
   },
   {
     icon: HandCoins,
-    label: 'Contribution',
+    label: '貢獻',
     value: 69,
     change: 3,
     color: 'text-yellow-600 bg-yellow-100 from-yellow-400 to-yellow-300',
@@ -56,7 +55,7 @@ const closeModal = () => (showModal.value = false)
     <div
       class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col items-center"
     >
-      <div class="text-2xl font-bold flex items-center gap-2 mb-2">🧭 LIFE COMPASS</div>
+      <div class="text-2xl font-bold flex items-center gap-2 mb-2">🧭 幸福指南針</div>
       <div class="w-full flex items-center justify-center">
         <LifeRadar />
       </div>
@@ -94,60 +93,58 @@ const closeModal = () => (showModal.value = false)
         @click="openModal"
         class="mt-4 text-sm text-company-blue underline hover:text-company-green"
       >
-        How do I improve these?
+        如何提升這些指標？
       </button>
     </div>
 
     <!-- INSURANCE TIP CARD -->
     <div class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2">
-      <div class="text-lg font-semibold flex items-center gap-2">💡 INSURANCE TIP OF THE DAY</div>
-      <div class="text-gray-700">“Reducing stress reduces long-term risk.”</div>
+      <div class="text-lg font-semibold flex items-center gap-2">💡 今日保險小知識</div>
+      <div class="text-gray-700">「減壓有助於降低長期風險。」</div>
       <button class="text-company-blue underline text-sm w-fit hover:text-company-green">
-        See how insurance supports this ↓
+        了解更多保險知識 ↓
       </button>
     </div>
 
     <!-- JOURNAL SNAPSHOT CARD -->
     <div class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2">
-      <div class="text-lg font-semibold flex items-center gap-2">📖 TODAY'S JOURNAL SNAPSHOT</div>
+      <div class="text-lg font-semibold flex items-center gap-2">📖 今日日誌摘要</div>
       <div class="flex items-center gap-2 text-base">
-        <span>Mood:</span> <span class="text-2xl">🙂</span> <span>Positive</span>
+        <span>心情：</span> <span class="text-2xl">🙂</span> <span>正向</span>
       </div>
-      <div class="text-gray-700 truncate">“I focused better today after a morning...”</div>
-      <div class="text-green-600 text-sm font-medium">+2 Mindfulness</div>
+      <div class="text-gray-700 truncate">「今天早上專注力提升，工作效率更好⋯⋯」</div>
+      <div class="text-green-600 text-sm font-medium">+2 正念</div>
     </div>
 
     <!-- ACTIVE CHALLENGE CARD -->
     <div class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2">
-      <div class="text-lg font-semibold flex items-center gap-2">🏆 ACTIVE CHALLENGE</div>
+      <div class="text-lg font-semibold flex items-center gap-2">🏆 進行中挑戰</div>
       <div class="flex items-center gap-2">
-        <span class="text-xl">💤</span> <span>Sleep before 11pm (x3 days)</span>
+        <span class="text-xl">💤</span> <span>23:00 前就寢（連續 3 天）</span>
       </div>
       <div class="flex gap-2 mt-1">
-        <span class="px-2 py-1 rounded bg-green-100 text-green-700 font-bold">✅ Day 1</span>
-        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold">⬜ Day 2</span>
-        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold">⬜ Day 3</span>
+        <span class="px-2 py-1 rounded bg-green-100 text-green-700 font-bold">✅ 第 1 天</span>
+        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold">⬜ 第 2 天</span>
+        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 font-bold">⬜ 第 3 天</span>
       </div>
-      <div class="text-pink-600 text-sm font-medium">Reward: +3 ❤️ Health</div>
+      <div class="text-pink-600 text-sm font-medium">獎勵：+3 ❤️ 健康</div>
       <button class="text-company-blue underline text-sm w-fit hover:text-company-green">
-        View All Challenges
+        查看所有挑戰
       </button>
     </div>
 
     <!-- SHARE PROGRESS CARD (triggered) -->
-    <FadeInCard>
-      <div
-        class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2 items-center"
+    <div
+      class="w-full max-w-xl mx-auto bg-white p-4 rounded-2xl shadow-md flex flex-col gap-2 items-center transition-all duration-500 animate-fade-in"
+    >
+      <div class="text-lg font-semibold flex items-center gap-2">🎉 分享你的進步</div>
+      <div class="text-green-700 font-bold">✅ 今日所有指標皆有提升！</div>
+      <button
+        class="mt-2 px-4 py-2 rounded bg-gradient-to-r from-company-blue to-company-green text-white font-semibold shadow hover:scale-105 transition"
       >
-        <div class="text-lg font-semibold flex items-center gap-2">🎉 SHARE YOUR PROGRESS</div>
-        <div class="text-green-700 font-bold">✅ All metrics improved today!</div>
-        <button
-          class="mt-2 px-4 py-2 rounded bg-gradient-to-r from-company-blue to-company-green text-white font-semibold shadow hover:scale-105 transition"
-        >
-          Share as Image
-        </button>
-      </div>
-    </FadeInCard>
+        分享幸福指南針
+      </button>
+    </div>
 
     <!-- Modal for improvement tips -->
     <div v-if="showModal" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
@@ -158,13 +155,13 @@ const closeModal = () => (showModal.value = false)
         >
           ✕
         </button>
-        <div class="text-lg font-bold mb-2">How to Improve Your Metrics</div>
+        <div class="text-lg font-bold mb-2">如何提升你的指標</div>
         <ul class="list-disc pl-5 text-gray-700 space-y-1">
-          <li>Health: Sleep well, eat balanced, exercise regularly.</li>
-          <li>Growth: Learn something new, set goals, reflect daily.</li>
-          <li>Connection: Reach out to friends/family, join a group.</li>
-          <li>Mindfulness: Meditate, journal, take mindful breaks.</li>
-          <li>Contribution: Volunteer, help others, share knowledge.</li>
+          <li>健康：充足睡眠、均衡飲食、規律運動。</li>
+          <li>成長：學習新知、設定目標、每日反思。</li>
+          <li>連結：聯絡親友、參加社群。</li>
+          <li>正念：冥想、寫日誌、正念休息。</li>
+          <li>貢獻：志工服務、幫助他人、知識分享。</li>
         </ul>
       </div>
     </div>
@@ -186,5 +183,19 @@ const closeModal = () => (showModal.value = false)
 }
 .hover\:text-company-green:hover {
   color: #01b6ad;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>
