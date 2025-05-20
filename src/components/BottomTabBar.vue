@@ -52,11 +52,11 @@ const isActive = (path: string) => route.path.startsWith(path)
 const go = (to: string) => router.push(to)
 
 const tabs = [
-  { to: '/compass', icon: 'compass', label: 'Compass', iconComponent: Compass },
-  { to: '/journal', icon: 'book', label: 'Journal', iconComponent: Book },
-  { to: '/challenge', icon: 'trophy', label: 'Challenge', iconComponent: Trophy },
-  { to: '/trends', icon: 'trending-up', label: 'Trends', iconComponent: TrendingUp },
-  { to: '/profile', icon: 'user', label: 'Profile', iconComponent: User },
+  { to: '/compass', icon: 'compass', label: '指南針', iconComponent: Compass },
+  { to: '/journal', icon: 'book', label: '日誌', iconComponent: Book },
+  { to: '/challenge', icon: 'trophy', label: '挑戰', iconComponent: Trophy },
+  { to: '/trends', icon: 'trending-up', label: '趨勢', iconComponent: TrendingUp },
+  { to: '/profile', icon: 'user', label: '個人檔案', iconComponent: User },
 ]
 </script>
 
