@@ -7,7 +7,7 @@ const moodStore = useMoodStore()
 const journalStore = useJournalStore()
 
 const today = new Date()
-const todayStr = today.toLocaleDateString('en-US', {
+const todayStr = today.toLocaleDateString('zh-TW', {
   weekday: 'long',
   month: 'long',
   day: 'numeric',
@@ -24,11 +24,11 @@ const moods = [
 const selectedMood = ref(moodStore.selectedMood || '')
 
 const prompts = [
-  'What challenged you most today?',
-  'What are you grateful for right now?',
-  'What did you learn today?',
-  'What would you like to improve tomorrow?',
-  'Who made a positive impact on you today?',
+  '今天最具挑戰的是什麼？',
+  '你現在最感激的是什麼？',
+  '今天你學到了什麼？',
+  '明天你想改進什麼？',
+  '今天誰對你產生了正面影響？',
 ]
 const promptIdx = ref(0)
 const prompt = computed(() => prompts[promptIdx.value])
@@ -44,10 +44,10 @@ const entry = ref('')
 const tags = [
   { icon: '🧠', label: '成長' },
   { icon: '🏋', label: '健康' },
-  { icon: '❤️', label: 'Love' },
-  { icon: '💼', label: 'Work' },
-  { icon: '💰', label: 'Finance' },
-  { icon: '🧘', label: 'Calm' },
+  { icon: '❤️', label: '愛情' },
+  { icon: '💼', label: '工作' },
+  { icon: '💰', label: '財務' },
+  { icon: '🧘', label: '平靜' },
 ]
 const selectedTags = ref<string[]>([])
 const showCustomTagInput = ref(false)
@@ -147,13 +147,13 @@ const streak = computed(() => {
 <template>
   <div class="max-w-xl mx-auto space-y-6 p-2">
     <div class="bg-white rounded-2xl shadow p-4">
-      <div class="flex items-center gap-2 text-lg font-bold mb-2">📓 Journal</div>
+      <div class="flex items-center gap-2 text-lg font-bold mb-2">📓 日誌</div>
       <div class="flex justify-between text-sm text-gray-500 mb-2">
-        <span>🗓️ Today: {{ todayStr }}</span>
-        <span>🔥 Streak: {{ streak }} days</span>
+        <span>🗓️ 今天：{{ todayStr }}</span>
+        <span>🔥 連續天數：{{ streak }} 天</span>
       </div>
       <div class="mb-3">
-        <div class="font-semibold mb-1">😄 How are you feeling today?</div>
+        <div class="font-semibold mb-1">😄 今天的心情如何？</div>
         <div class="flex gap-2">
           <button
             v-for="m in moods"
@@ -172,28 +172,28 @@ const streak = computed(() => {
       </div>
       <div class="mb-3">
         <div class="font-semibold mb-1 flex items-center gap-2">
-          💬 Prompt of the Day
+          💬 今日提問
           <button
             @click="shufflePrompt"
             class="ml-2 px-2 py-1 rounded bg-gray-100 text-xs hover:bg-blue-100"
           >
-            🔄 Shuffle Prompt
+            🔄 換一題
           </button>
         </div>
-        <div class="italic text-gray-700 mb-1">“{{ prompt }}”</div>
+        <div class="italic text-gray-700 mb-1">「{{ prompt }}」</div>
       </div>
       <div class="mb-3">
-        <div class="font-semibold mb-1">📝 Your Reflection</div>
+        <div class="font-semibold mb-1">📝 你的反思</div>
         <textarea
           v-model="entry"
           class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-base resize-none"
           rows="3"
           maxlength="240"
-          placeholder="Share your thoughts..."
+          placeholder="分享你的想法..."
         ></textarea>
       </div>
       <div class="mb-3">
-        <div class="font-semibold mb-1">🏷️ Tags (select up to 3):</div>
+        <div class="font-semibold mb-1">🏷️ 標籤（最多選 3 項）：</div>
         <div class="flex flex-wrap gap-2">
           <button
             v-for="tag in tags"
@@ -214,22 +214,22 @@ const streak = computed(() => {
             @click="showCustomTagInput = true"
             class="px-3 py-1 rounded-full border border-dashed border-gray-300 text-gray-400 text-sm hover:bg-gray-100"
           >
-            ➕ Add Tag
+            ➕ 新增標籤
           </button>
           <div v-else class="flex items-center gap-1">
             <input
               v-model="customTag"
               class="px-2 py-1 border rounded text-sm w-24"
-              placeholder="Tag"
+              placeholder="自訂標籤"
               @keyup.enter="addCustomTag"
             />
-            <button @click="addCustomTag" class="text-blue-600 text-sm font-semibold">Add</button>
+            <button @click="addCustomTag" class="text-blue-600 text-sm font-semibold">新增</button>
             <button @click="showCustomTagInput = false" class="text-gray-400 text-sm">✕</button>
           </div>
         </div>
       </div>
       <div class="mb-3 flex items-center gap-2 text-sm text-gray-500">
-        <span>⏱️ Reflection Time: {{ formatTime(elapsed) }}</span>
+        <span>⏱️ 反思時間：{{ formatTime(elapsed) }}</span>
       </div>
       <div class="flex flex-col items-center mt-4">
         <button
@@ -237,16 +237,16 @@ const streak = computed(() => {
           :disabled="!selectedMood || !entry.trim()"
           class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg shadow"
         >
-          ✅ Submit Journal
+          ✅ 提交日誌
         </button>
-        <div class="text-xs text-gray-400 mt-1">You’re building a powerful habit!</div>
+        <div class="text-xs text-gray-400 mt-1">你正在養成強大的習慣！</div>
       </div>
     </div>
 
     <div class="bg-white rounded-2xl shadow p-4">
-      <div class="flex items-center gap-2 text-lg font-bold mb-2">🕰️ Recent Entries</div>
+      <div class="flex items-center gap-2 text-lg font-bold mb-2">🕰️ 最近紀錄</div>
       <div v-if="pastEntries && pastEntries.length === 0" class="text-gray-400 text-sm">
-        No past entries yet.
+        尚無過去紀錄。
       </div>
       <div v-for="e in pastEntries || []" :key="e.date + e.mood + e.text" class="mb-2">
         <div
@@ -255,7 +255,7 @@ const streak = computed(() => {
         >
           <span class="text-base"
             >•
-            {{ new Date(e.date).toLocaleString('en-US', { month: 'short', day: 'numeric' }) }}
+            {{ new Date(e.date).toLocaleString('zh-TW', { month: 'short', day: 'numeric' }) }}
             –</span
           >
           <span class="text-xl">{{ moods.find((m) => m.value === e.mood)?.label || '📝' }}</span>
@@ -271,7 +271,7 @@ const streak = computed(() => {
           <span
             v-if="'seconds' in e && typeof e.seconds === 'number' && e.seconds > 0"
             class="text-xs text-gray-400 ml-2"
-            >({{ formatTime(Number(e.seconds)) }})</span
+            >（{{ formatTime(Number(e.seconds)) }}）</span
           >
         </div>
         <div
@@ -283,7 +283,7 @@ const streak = computed(() => {
       </div>
       <div class="flex justify-end mt-2">
         <button class="text-blue-600 text-sm font-semibold flex items-center gap-1 hover:underline">
-          📂 View All Journals →
+          📂 查看所有日誌 →
         </button>
       </div>
     </div>
